@@ -30,6 +30,19 @@ export default defineConfig(({ mode }) => {
       // 웹 확장자 우선 순위
       extensions: [".web.tsx", ".web.ts", ".web.jsx", ".web.js", ".tsx", ".ts", ".jsx", ".js"],
     },
+    esbuild: {
+      // Reanimated Worklet이 작동하려면 함수 이름을 보존해야 할 수 있습니다.
+      keepNames: true,
+    },
+    build: {
+      commonjsOptions: {
+        // CommonJS 모듈 변환 시 오류 방지
+        transformMixedEsModules: true,
+      },
+      // 때로는 minification이 너무 강력하면 에러가 납니다.
+      // 만약 위 설정으로도 안 되면 아래 minify를 false로 바꿔보세요 (최후의 수단).
+      minify: "esbuild",
+    },
     optimizeDeps: {
       esbuildOptions: {
         resolveExtensions: [".web.tsx", ".web.ts", ".web.jsx", ".web.js", ".tsx", ".ts", ".jsx", ".js"],

@@ -5,6 +5,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chagok Web</title>
+  <script>
+    if (typeof global === 'undefined') {
+      window.global = window;
+    }
+  </script>
   <style>
     /* React Native Web을 위한 기본 스타일 초기화 */
     html,
