@@ -2,9 +2,11 @@ import { Button, StyleSheet, Text, View } from "react-native";
 import Animated, { useAnimatedStyle, useSharedValue, withSpring } from "react-native-reanimated";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
+import useCurrentPage from "@/hooks/useCurrentPage";
 import useNavigation from "@/hooks/useNavigation";
 
 const MainPage = () => {
+  const currentPage = useCurrentPage();
   const navigation = useNavigation();
   const safeAreaInsets = useSafeAreaInsets();
   const width = useSharedValue(100);
@@ -29,7 +31,7 @@ const MainPage = () => {
       <Button
         title="Test 이동"
         onPress={() =>
-          navigation.navigate("MainStack", {
+          navigation.navigate("main", {
             screen: "test",
           })
         }
@@ -37,8 +39,11 @@ const MainPage = () => {
       <Button
         title="SubPage로 이동"
         onPress={() =>
-          navigation.navigate("SubStack", {
-            screen: "test",
+          navigation.navigate("sub", {
+            screen: "SubSubStack",
+            params: {
+              screen: "subSub",
+            },
           })
         }
       />
@@ -51,6 +56,9 @@ const MainPage = () => {
         }
       />
       <Text>Hello World</Text>
+      <Text>title: {currentPage.title}</Text>
+      <Text>path:{currentPage.path}</Text>
+      <Text>routeNames:{currentPage.routeNames.join(", ")}</Text>
       <Text>{safeAreaInsets.top}</Text>
       <Text>{safeAreaInsets.bottom}</Text>
       <Text>{safeAreaInsets.left}</Text>

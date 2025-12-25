@@ -1,7 +1,10 @@
 import { Button, StyleSheet, Text, View } from "react-native";
 import Animated, { useAnimatedStyle, useSharedValue, withSpring } from "react-native-reanimated";
 
+import useCurrentPage from "@/hooks/useCurrentPage";
+
 const TestPage = () => {
+  const currentPage = useCurrentPage();
   const width = useSharedValue(100);
 
   // 2. 애니메이션 값에 따라 스타일이 어떻게 변할지 정의
@@ -22,6 +25,9 @@ const TestPage = () => {
       <Animated.View style={[styles.box, animatedStyle]} />
       <Button title="너비 변경하기" onPress={handlePress} />
       <Text>Hello World123</Text>
+      <Text>title: {currentPage.title}</Text>
+      <Text>path:{currentPage.path}</Text>
+      <Text>routeNames:{currentPage.routeNames.join(", ")}</Text>
     </View>
   );
 };
