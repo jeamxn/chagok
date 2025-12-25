@@ -1,7 +1,7 @@
 # ===================================
 # Stage 1: 빌드 스테이지 (Bun 사용)
 # ===================================
-FROM oven/bun:1 AS builder
+FROM harbor.dev.ppfd.kr/docker/oven/bun:1 AS builder
 
 WORKDIR /app
 
@@ -21,7 +21,10 @@ RUN cp public/index.html dist/index.html
 # ===================================
 # Stage 2: 프로덕션 스테이지 (Nginx)
 # ===================================
-FROM nginx:alpine AS production
+FROM harbor.dev.ppfd.kr/docker/nginx:alpine AS production
+
+# curl 설치 (헬스체크용)
+RUN apk add --no-cache curl
 
 # Nginx 설정 복사
 COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
@@ -34,7 +37,7 @@ EXPOSE 80
 
 # 헬스체크
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-    CMD wget --no-verbose --tries=1 --spider http://localhost:80/ || exit 1
+    CMD curl -f http://localhost:80/ || exit 1
 
 # Nginx 시작
 CMD ["nginx", "-g", "daemon off;"]
