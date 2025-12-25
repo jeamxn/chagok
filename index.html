@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chagok Metro Web</title>
+  <style>
+    html,
+    body,
+    #app-root {
+      height: 100%;
+      margin: 0;
+    }
+
+    /* React Native Web 필수 스타일 리셋 */
+    #app-root {
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app-root"></div>
+  <script src="http://localhost:8081/index.bundle?platform=web&dev=true&minify=false"></script>
+</body>
+
+</html>
