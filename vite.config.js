@@ -5,6 +5,7 @@ import { defineConfig } from "vite";
 export default defineConfig(({ mode }) => {
   const isDev = mode !== "production";
   return {
+    root: path.resolve(__dirname, "web"),
     plugins: [
       react({
         babel: {
@@ -22,6 +23,12 @@ export default defineConfig(({ mode }) => {
       "process.env": {},
       __DEV__: JSON.stringify(isDev),
     },
+    server: {
+      fs: {
+        // web/ 아래에서 ../src, ../app.json 등을 import 할 수 있도록 허용
+        allow: [path.resolve(__dirname)],
+      },
+    },
     resolve: {
       alias: {
         "react-native": "react-native-web",
@@ -35,6 +42,9 @@ export default defineConfig(({ mode }) => {
       keepNames: true,
     },
     build: {
+      // root를 web/로 바꾸더라도 산출물은 루트 dist/를 유지 (Docker/Nginx 흐름과 일치)
+      outDir: path.resolve(__dirname, "dist"),
+      emptyOutDir: true,
       commonjsOptions: {
         // CommonJS 모듈 변환 시 오류 방지
         transformMixedEsModules: true,
