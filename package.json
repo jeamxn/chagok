@@ -10,7 +10,10 @@
     "lint:fix-unsafe": "biome check --unsafe --write",
     "format": "biome format --write",
     "start": "react-native start",
-    "test": "jest"
+    "test": "jest",
+    "web": "react-native start --port 8081",
+    "web:bundle": "react-native bundle --platform web --dev false --entry-file index.js --bundle-output dist/bundle.js --assets-dest dist",
+    "web:build": "bun run web:bundle && cp public/index.html dist/index.html"
   },
   "dependencies": {
     "@react-native/new-app-screen": "0.83.1",
