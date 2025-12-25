@@ -16,9 +16,11 @@
           "options": {
             "identifierOrder": "natural",
             "groups": [
-              "@/**",
+              [":BUN:", ":NODE:"],
               ":BLANK_LINE:",
-              [":BUN:", ":NODE:", ":PACKAGE:"],
+              [":PACKAGE:", ":PACKAGE_WITH_PROTOCOL:"],
+              ":BLANK_LINE:",
+              ["@/**"],
               ":BLANK_LINE:",
               ":PATH:"
             ]
