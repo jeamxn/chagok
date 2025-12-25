@@ -1,7 +1,7 @@
 # ===================================
 # Stage 1: 빌드 스테이지 (Bun 사용)
 # ===================================
-FROM harbor.dev.ppfd.kr/docker/oven/bun:1 AS builder
+FROM oven/bun:1 AS builder
 
 WORKDIR /app
 
@@ -21,7 +21,7 @@ RUN cp public/index.html dist/index.html
 # ===================================
 # Stage 2: 프로덕션 스테이지 (Nginx)
 # ===================================
-FROM harbor.dev.ppfd.kr/docker/nginx:alpine AS production
+FROM nginx:alpine AS production
 
 # curl 설치 (헬스체크용)
 RUN apk add --no-cache curl
