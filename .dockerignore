@@ -1,0 +1,41 @@
+# Node modules
+node_modules/
+
+# Build outputs
+dist/
+build/
+
+# Native directories
+ios/
+android/
+vendor/
+
+# Git
+.git/
+.gitignore
+
+# IDE
+.idea/
+.vscode/
+.cursor/
+*.code-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Test files
+__tests__/
+coverage/
+
+# Documentation
+*.md
+
+# Misc
+.env*
+.buck*
+
