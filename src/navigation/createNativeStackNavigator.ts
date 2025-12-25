@@ -1,12 +1,13 @@
-import type { NavigatorScreenParams, ParamListBase } from "@react-navigation/native";
+import type { ParamListBase } from "@react-navigation/native";
 import { createNativeStackNavigator as createRNStackNavigator } from "@react-navigation/native-stack";
 
 import type { StackParamList } from "./types";
 
-type ExtractNestedParamList<T> = T extends NavigatorScreenParams<infer P extends ParamListBase> ? P : never;
+type ExtractNestedParamList<T> =
+  NonNullable<T> extends { readonly __paramList?: infer P } ? (P extends ParamListBase ? P : never) : never;
 
 type NestedNavigatorKey = {
-  [K in keyof StackParamList]: StackParamList[K] extends NavigatorScreenParams<ParamListBase> ? K : never;
+  [K in keyof StackParamList]: ExtractNestedParamList<StackParamList[K]> extends never ? never : K;
 }[keyof StackParamList];
 
 const createNativeStackNavigator = <K extends NestedNavigatorKey>(_key: K) => {
