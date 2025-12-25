@@ -15,19 +15,7 @@
           "level": "on",
           "options": {
             "identifierOrder": "natural",
-            "groups": [
-              "@front/**",
-              ":BLANK_LINE:",
-              "@back/**",
-              ":BLANK_LINE:",
-              "admin-ui/**",
-              ":BLANK_LINE:",
-              "ui/**",
-              ":BLANK_LINE:",
-              [":BUN:", ":NODE:", ":PACKAGE:"],
-              ":BLANK_LINE:",
-              ":PATH:"
-            ]
+            "groups": ["@/**", ":BLANK_LINE:", [":BUN:", ":NODE:", ":PACKAGE:"], ":BLANK_LINE:", ":PATH:"]
           }
         }
       }
