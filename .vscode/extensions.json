@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "bradlc.vscode-tailwindcss",
+    "naumovs.color-highlight",
+    "Prisma.prisma",
+    "biomejs.biome",
+    "TypeScriptTeam.native-preview"
+  ]
+}
