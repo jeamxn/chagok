@@ -1,4 +1,4 @@
-import { Button, StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 import Animated, { useAnimatedStyle, useSharedValue, withSpring } from "react-native-reanimated";
 
 import useCurrentPage from "@/hooks/useCurrentPage";
@@ -23,7 +23,9 @@ const TestPage = () => {
   return (
     <View style={styles.container}>
       <Animated.View style={[styles.box, animatedStyle]} />
-      <Button title="너비 변경하기" onPress={handlePress} />
+      <Pressable style={styles.button} onPress={handlePress}>
+        <Text>너비 변경하기</Text>
+      </Pressable>
       <Text>Hello World123</Text>
       <Text>title: {currentPage.title}</Text>
       <Text>path:{currentPage.path}</Text>
@@ -45,6 +47,12 @@ const styles = StyleSheet.create({
     backgroundColor: "violet",
     borderRadius: 20,
     marginBottom: 20,
+  },
+  button: {
+    backgroundColor: "blue",
+    padding: 10,
+    borderRadius: 5,
+    marginBottom: 10,
   },
 });
 

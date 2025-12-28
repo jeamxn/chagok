@@ -1,3 +1,4 @@
+import LoginPage from "@/routes/login/page";
 import MainPage from "@/routes/main/page";
 import MainTestPage from "@/routes/main/test";
 import SubPage from "@/routes/sub/page";
@@ -7,6 +8,16 @@ import defineScreen from "./defineScreen";
 import defineStack from "./defineStack";
 
 const ROUTES = {
+  login: defineStack({
+    title: "로그인",
+    initialRouteName: "index",
+    screens: {
+      index: defineScreen({
+        title: "로그인 화면",
+        component: LoginPage,
+      }),
+    },
+  }),
   main: defineStack({
     title: "메인",
     initialRouteName: "index",

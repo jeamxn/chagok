@@ -29,10 +29,10 @@ const MainPage = () => {
       <Animated.View style={[styles.box, animatedStyle]} />
       <Button title="너비 변경하기" onPress={handlePress} />
       <Button
-        title="Test 이동"
+        title="로그인 이동"
         onPress={() =>
-          navigation.navigate("main", {
-            screen: "test",
+          navigation.navigate("login", {
+            screen: "index",
           })
         }
       />

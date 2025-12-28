@@ -12,12 +12,12 @@ const STACK_COMPONENTS = typedEntries(ROUTES).reduce(
   {} as Record<keyof typeof ROUTES, React.ComponentType>,
 );
 
-const INITIAL_STACK = (typedEntries(ROUTES)[0]?.[0] ?? "main") as keyof typeof ROUTES;
+// const INITIAL_STACK = (typedEntries(ROUTES)[0]?.[0] ?? "main") as keyof typeof ROUTES;
 
 const Routes = () => {
   return (
     <Router.Navigator
-      initialRouteName={INITIAL_STACK}
+      initialRouteName="main"
       screenOptions={({ route }) => {
         return {
           title: route.name,
