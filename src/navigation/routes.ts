@@ -1,8 +1,8 @@
-import LoginPage from "@/routes/login/page";
-import MainPage from "@/routes/main/page";
-import MainTestPage from "@/routes/main/test";
-import SubPage from "@/routes/sub/page";
-import SubTestPage from "@/routes/sub/test";
+import LoginPage from "@/app/login/page";
+import MainPage from "@/app/main/page";
+import MainTestPage from "@/app/main/test";
+import SubPage from "@/app/sub/page";
+import SubTestPage from "@/app/sub/test";
 
 import defineScreen from "./defineScreen";
 import defineStack from "./defineStack";

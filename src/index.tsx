@@ -11,7 +11,7 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 
 import { linking } from "@/navigation";
 
-import Routes from "./routes/routes";
+import Routes from "./app/routes";
 
 const App = () => {
   const isDarkMode = useColorScheme() === "dark";
